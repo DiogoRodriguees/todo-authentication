@@ -1,10 +1,10 @@
 import { UserDTO } from 'src/classes/dtos/UserDTO';
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryGeneratedColumn({ name: 'id', type: 'integer', primaryKeyConstraintName: 'id' })
-  id: number;
+  @PrimaryColumn({ name: 'id', type: 'uuid', primaryKeyConstraintName: 'id' })
+  id: string;
 
   @Column({ name: 'name', type: 'varchar', nullable: false })
   name: string;
