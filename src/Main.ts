@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './modules/AppModule';
+import { MailModule } from './modules/MainModule';
 
 async function Main() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(MailModule);
   await app.listen(process.env.PORT || 3000);
 }
 Main();

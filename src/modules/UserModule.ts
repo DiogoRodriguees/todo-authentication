@@ -1,13 +1,11 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from 'src/entities/UserEntity';
-import { UserRepository } from 'src/repositories/UserRepository';
-import { UserService } from 'src/services/UserService';
+import HttpModuleConfig from 'src/configs/HttpModuleConfig';
+import { UserHttpGateway } from 'src/gateways/UserHttpGateway';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UserEntity])],
-  controllers: [],
-  providers: [UserService, UserRepository],
-  exports: [UserService],
+  imports: [HttpModule.register(HttpModuleConfig)],
+  providers: [UserHttpGateway],
+  exports: [UserHttpGateway],
 })
 export class UserModule {}
